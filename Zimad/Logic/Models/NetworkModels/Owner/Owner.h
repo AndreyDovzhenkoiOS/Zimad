@@ -11,7 +11,6 @@
 @interface Owner : NSObject
 
 @property (strong, nonatomic) NSNumber *Id;
-@property (strong, nonatomic) NSString *login;
 @property (strong, nonatomic) NSURL *avatarUrl;
 
 +(Owner *)withDictionary:(NSDictionary *)dictionary;

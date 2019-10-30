@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7d-UT-Eij">
                         <rect key="frame" x="8" y="5" width="461" height="140"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="HM6-F0-rT2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyIcon" translatesAutoresizingMaskIntoConstraints="NO" id="HM6-F0-rT2">
                                 <rect key="frame" x="8" y="10" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="4Ca-fh-s8O"/>
@@ -100,6 +100,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon" width="230" height="230"/>
+        <image name="emptyIcon" width="490" height="491"/>
     </resources>
 </document>

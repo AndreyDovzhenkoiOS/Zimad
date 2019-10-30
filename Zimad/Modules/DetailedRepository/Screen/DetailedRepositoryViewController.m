@@ -10,6 +10,7 @@
 #import "UIView+UIView.h"
 
 @interface DetailedRepositoryViewController ()
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *branchLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameComitLabel;
 
@@ -25,17 +26,23 @@
     [super viewDidLoad];
     [self completionHandlers];
     [self configureUI];
+    [self configureHeaderView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setHidden: NO];
     [self.viewModel requestDetailedRepository];
 }
 
 - (void)configureUI {
     _avatarImaveView.layer.cornerRadius = 10;
     [_avatarImaveView setupShadow:5 opacity:0.5 height:5];
+}
+
+- (void)configureHeaderView {
+    self.headerView.clipsToBounds = YES;
+    self.headerView.layer.cornerRadius = 20;
+    self.headerView.layer.maskedCorners = kCALayerMinXMaxYCorner | kCALayerMaxXMaxYCorner;
 }
 
 - (void)completionHandlers {
@@ -55,6 +62,10 @@
     _hashComitLabel.text = author.hashCommit;
     _nameComitLabel.text = author.nameCommit;
     _branchLabel.text = _viewModel.repository.branch;
+}
+
+- (IBAction)extitAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

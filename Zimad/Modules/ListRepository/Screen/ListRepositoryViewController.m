@@ -52,7 +52,6 @@
     self.headerView.layer.maskedCorners = kCALayerMinXMaxYCorner | kCALayerMaxXMaxYCorner;
 }
 
-
 - (void)registerCell {
     UINib *nib = [UINib nibWithNibName: [RepositoryTableViewCell identifier] bundle: nil];
     [_tableView registerNib: nib forCellReuseIdentifier: [RepositoryTableViewCell identifier]];
