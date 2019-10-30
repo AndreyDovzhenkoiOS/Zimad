@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Repository.h"
+#import "NetworkService.h"
 
 @interface RepositoryTableViewCell : UITableViewCell
 
-- (void)configureWith:(Repository *)repository;
+- (void)configureWith:(Repository *)repository service:(NetworkService*)service;
 
 @end

@@ -10,6 +10,8 @@
 
 @interface RepositoryTableViewCell()
 
+@property (strong, nonatomic) NetworkService *service;
+
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -25,10 +27,19 @@
     [self configurationUI];
 }
 
-- (void)configureWith:(Repository *)repository {
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    _iconImageView.image = nil;
+}
+
+- (void)configureWith:(Repository *)repository service:(NetworkService*)service {
+    _service = service;
     _titleLabel.text = repository.title;
     _nameLabel.text = repository.fullName;
     _descriptionLabel.text = repository.descriptions;
+    [_service getImageWithUrl:repository.owner.avatarUrl completion:^(UIImage *image) {
+        self.iconImageView.image = image;
+    }];
 }
 
 - (void)configurationUI {

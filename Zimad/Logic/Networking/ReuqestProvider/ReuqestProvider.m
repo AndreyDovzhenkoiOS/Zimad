@@ -25,7 +25,7 @@
     components.scheme = @"https";
     components.host = @"api.github.com";
     components.path = [target path:target.type];
-    components.queryItems = [target parameters:target.type page:1 perPage:20];
+    components.queryItems = [target parameters:target.type];
     return components.URL;
 }
 

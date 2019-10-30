@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailedRepositoryViewModel.h"
 
 @interface DetailedRepositoryViewController : UIViewController
+
+@property (strong, nonatomic) DetailedRepositoryViewModel *viewModel;
 
 @end

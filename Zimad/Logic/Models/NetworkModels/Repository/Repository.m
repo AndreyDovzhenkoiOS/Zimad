@@ -12,7 +12,6 @@
 
 + (Repository*)withDictionary:(NSDictionary *)dictionary {
     Repository *repository = [Repository new];
-
     repository.Id = dictionary[@"id"];
     repository.title = dictionary[@"name"];
     repository.fullName = dictionary[@"full_name"];
@@ -20,7 +19,7 @@
     repository.branch = dictionary[@"default_branch"];
     repository.descriptions = dictionary[@"description"];
     repository.owner = [Owner withDictionary:dictionary[@"owner"]];
-
     return repository;
 }
+
 @end

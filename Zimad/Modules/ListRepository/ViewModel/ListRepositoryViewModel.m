@@ -7,11 +7,12 @@
 //
 
 #import "ListRepositoryViewModel.h"
-#import "NetworkService.h"
 
 @interface ListRepositoryViewModel ()
 
-@property (strong, nonatomic) NetworkService *service;
+@property (assign, nonatomic) NSInteger page;
+@property (assign, nonatomic) BOOL isNext;
+@property (assign, nonatomic) BOOL isLoading;
 
 @end
 
@@ -21,19 +22,51 @@
     self = [super init];
     if (self) {
         _service = [NetworkService new];
+        _isLoading = NO;
+        _isNext = YES;
+        _isNewList = YES;
+        _page = 1;
     }
     return self;
 }
 
 - (void)updateRepositories {
-    [self requestRepositories];
+    _page = 1;
+    _isNext = YES;
+    _isNewList = YES;
+    [self loadRepositories];
+}
+
+- (void)loadRepositories {
+    if (_isLoading) {
+        return;
+    }
+
+    if (self.isNext) {
+        _isLoading = YES;
+        [self requestRepositories];
+    }
 }
 
 - (void)requestRepositories {
-    [_service getRepositories:^(NSArray *items) {
-        self.repositories = items;
-        self.completionHandler(@"fdsfsd");
+    [_service getRepositoriesWith:20 page:_page completion:^(RepositoryList *repositoryList) {
+        [self handleRequestRepositories: repositoryList];
     }];
+}
+
+- (void)handleRequestRepositories:(RepositoryList *)repositoryList {
+    self.isNext = repositoryList.isNext;
+
+    if (self.isNewList) {
+        self.repositoryList = repositoryList;
+        self.repositoryList.repositories = repositoryList.repositories;
+    } else {
+        [self.repositoryList.repositories addObjectsFromArray:repositoryList.repositories];
+    }
+
+    self.page++;
+    self.completionHandler(update);
+    self.isLoading = NO;
 }
 
 @end

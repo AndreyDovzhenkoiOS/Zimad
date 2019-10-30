@@ -12,6 +12,8 @@
 		8A002DF42362123E000E9AB7 /* DetailedRepositoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A002DF32362123E000E9AB7 /* DetailedRepositoryViewController.m */; };
 		8A002DF7236212D3000E9AB7 /* DetailedRepository.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A002DF6236212D3000E9AB7 /* DetailedRepository.storyboard */; };
 		8A002DFA23621AD5000E9AB7 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A002DF923621AD5000E9AB7 /* Repository.m */; };
+		8A181A672369A8E1009AEFD0 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A181A662369A8E1009AEFD0 /* Author.m */; };
+		8A181A6A2369B94F009AEFD0 /* RepositoryList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A181A692369B94F009AEFD0 /* RepositoryList.m */; };
 		8A19036C2362F33B00CA9712 /* NSObject+NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A19036B2362F33B00CA9712 /* NSObject+NSObject.m */; };
 		8A1903752362F83C00CA9712 /* UIView+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1903742362F83C00CA9712 /* UIView+UIView.m */; };
 		8A72F2072360D3FF00F09F0B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A72F2062360D3FF00F09F0B /* AppDelegate.m */; };
@@ -24,6 +26,7 @@
 		8A72F21B2360D40100F09F0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A72F21A2360D40100F09F0B /* main.m */; };
 		8A72F2282360D44C00F09F0B /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A72F2272360D44C00F09F0B /* DatabaseManager.m */; };
 		8A72F2302360D54B00F09F0B /* ListRepositoryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A72F22F2360D54B00F09F0B /* ListRepositoryViewModel.m */; };
+		8AB006802369F09E003C6877 /* DetailedRepositoryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB0067F2369F09E003C6877 /* DetailedRepositoryViewModel.m */; };
 		8AFC1D9223688C9200F8E022 /* UITableView+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFC1D9123688C9200F8E022 /* UITableView+UITableView.m */; };
 		8AFC1DA023689C7C00F8E022 /* PullToRefreshAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFC1D9923689C7C00F8E022 /* PullToRefreshAnimator.m */; };
 		8AFC1DA123689C7C00F8E022 /* Ressources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8AFC1D9D23689C7C00F8E022 /* Ressources.bundle */; };
@@ -45,6 +48,10 @@
 		8A002DF6236212D3000E9AB7 /* DetailedRepository.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailedRepository.storyboard; sourceTree = "<group>"; };
 		8A002DF823621AD5000E9AB7 /* Repository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
 		8A002DF923621AD5000E9AB7 /* Repository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
+		8A181A652369A8E1009AEFD0 /* Author.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
+		8A181A662369A8E1009AEFD0 /* Author.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
+		8A181A682369B94F009AEFD0 /* RepositoryList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RepositoryList.h; sourceTree = "<group>"; };
+		8A181A692369B94F009AEFD0 /* RepositoryList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RepositoryList.m; sourceTree = "<group>"; };
 		8A19036A2362F33B00CA9712 /* NSObject+NSObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSObject.h"; sourceTree = "<group>"; };
 		8A19036B2362F33B00CA9712 /* NSObject+NSObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSObject.m"; sourceTree = "<group>"; };
 		8A1903732362F83C00CA9712 /* UIView+UIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+UIView.h"; sourceTree = "<group>"; };
@@ -66,6 +73,8 @@
 		8A72F2272360D44C00F09F0B /* DatabaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		8A72F22E2360D54B00F09F0B /* ListRepositoryViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListRepositoryViewModel.h; sourceTree = "<group>"; };
 		8A72F22F2360D54B00F09F0B /* ListRepositoryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListRepositoryViewModel.m; sourceTree = "<group>"; };
+		8AB0067E2369F09E003C6877 /* DetailedRepositoryViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailedRepositoryViewModel.h; sourceTree = "<group>"; };
+		8AB0067F2369F09E003C6877 /* DetailedRepositoryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailedRepositoryViewModel.m; sourceTree = "<group>"; };
 		8AFC1D9023688C9200F8E022 /* UITableView+UITableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+UITableView.h"; sourceTree = "<group>"; };
 		8AFC1D9123688C9200F8E022 /* UITableView+UITableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+UITableView.m"; sourceTree = "<group>"; };
 		8AFC1D9923689C7C00F8E022 /* PullToRefreshAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshAnimator.m; sourceTree = "<group>"; };
@@ -118,6 +127,7 @@
 		8A002DF0236211F1000E9AB7 /* DetailedRepository */ = {
 			isa = PBXGroup;
 			children = (
+				8AB0067D2369F07C003C6877 /* ViewModel */,
 				8A002DF12362122B000E9AB7 /* Screen */,
 			);
 			path = DetailedRepository;
@@ -142,6 +152,42 @@
 				8A002DE923620A6C000E9AB7 /* TableViewCell */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		8A181A6B2369BC87009AEFD0 /* Owner */ = {
+			isa = PBXGroup;
+			children = (
+				8AFC1DB62368C57A00F8E022 /* Owner.h */,
+				8AFC1DB72368C57A00F8E022 /* Owner.m */,
+			);
+			path = Owner;
+			sourceTree = "<group>";
+		};
+		8A181A6C2369BC89009AEFD0 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				8A002DF823621AD5000E9AB7 /* Repository.h */,
+				8A002DF923621AD5000E9AB7 /* Repository.m */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		8A181A6D2369BC8C009AEFD0 /* RepositoryList */ = {
+			isa = PBXGroup;
+			children = (
+				8A181A682369B94F009AEFD0 /* RepositoryList.h */,
+				8A181A692369B94F009AEFD0 /* RepositoryList.m */,
+			);
+			path = RepositoryList;
+			sourceTree = "<group>";
+		};
+		8A181A6E2369BCA1009AEFD0 /* Author */ = {
+			isa = PBXGroup;
+			children = (
+				8A181A652369A8E1009AEFD0 /* Author.h */,
+				8A181A662369A8E1009AEFD0 /* Author.m */,
+			);
+			path = Author;
 			sourceTree = "<group>";
 		};
 		8A1903692362F32400CA9712 /* Category */ = {
@@ -248,7 +294,7 @@
 		8A72F22B2360D51400F09F0B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8A72F22D2360D52E00F09F0B /* Network */,
+				8A72F22D2360D52E00F09F0B /* NetworkModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -262,15 +308,15 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		8A72F22D2360D52E00F09F0B /* Network */ = {
+		8A72F22D2360D52E00F09F0B /* NetworkModels */ = {
 			isa = PBXGroup;
 			children = (
-				8AFC1DB62368C57A00F8E022 /* Owner.h */,
-				8AFC1DB72368C57A00F8E022 /* Owner.m */,
-				8A002DF823621AD5000E9AB7 /* Repository.h */,
-				8A002DF923621AD5000E9AB7 /* Repository.m */,
+				8A181A6D2369BC8C009AEFD0 /* RepositoryList */,
+				8A181A6C2369BC89009AEFD0 /* Repository */,
+				8A181A6B2369BC87009AEFD0 /* Owner */,
+				8A181A6E2369BCA1009AEFD0 /* Author */,
 			);
-			path = Network;
+			path = NetworkModels;
 			sourceTree = "<group>";
 		};
 		8A72F2312360D55100F09F0B /* ViewModel */ = {
@@ -278,6 +324,15 @@
 			children = (
 				8A72F22E2360D54B00F09F0B /* ListRepositoryViewModel.h */,
 				8A72F22F2360D54B00F09F0B /* ListRepositoryViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8AB0067D2369F07C003C6877 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8AB0067E2369F09E003C6877 /* DetailedRepositoryViewModel.h */,
+				8AB0067F2369F09E003C6877 /* DetailedRepositoryViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -448,10 +503,12 @@
 			files = (
 				8AFC1DA023689C7C00F8E022 /* PullToRefreshAnimator.m in Sources */,
 				8AFC1DB82368C57A00F8E022 /* Owner.m in Sources */,
+				8A181A672369A8E1009AEFD0 /* Author.m in Sources */,
 				8A72F21B2360D40100F09F0B /* main.m in Sources */,
 				8A002DFA23621AD5000E9AB7 /* Repository.m in Sources */,
 				8A1903752362F83C00CA9712 /* UIView+UIView.m in Sources */,
 				8AFC1DB02368B47700F8E022 /* ReuqestTarget.m in Sources */,
+				8AB006802369F09E003C6877 /* DetailedRepositoryViewModel.m in Sources */,
 				8A72F20D2360D3FF00F09F0B /* ListRepositoryViewController.m in Sources */,
 				8AFC1DA92368B18900F8E022 /* RefreshControl.m in Sources */,
 				8A72F2302360D54B00F09F0B /* ListRepositoryViewModel.m in Sources */,
@@ -464,6 +521,7 @@
 				8AFC1D9223688C9200F8E022 /* UITableView+UITableView.m in Sources */,
 				8A72F2132360D3FF00F09F0B /* Zimad.xcdatamodeld in Sources */,
 				8A002DF42362123E000E9AB7 /* DetailedRepositoryViewController.m in Sources */,
+				8A181A6A2369B94F009AEFD0 /* RepositoryList.m in Sources */,
 				8AFC1DA72368B14400F8E022 /* CircleView.m in Sources */,
 				8A002DED23620A9B000E9AB7 /* RepositoryTableViewCell.m in Sources */,
 			);

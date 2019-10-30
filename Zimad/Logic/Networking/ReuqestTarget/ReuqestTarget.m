@@ -8,35 +8,56 @@
 
 #import "ReuqestTarget.h"
 
+@interface ReuqestTarget ()
+
+@property (strong, nonatomic) Repository *repository;
+@property (assign, nonatomic) NSInteger limit;
+@property (assign, nonatomic) NSInteger page;
+
+@end
+
 @implementation ReuqestTarget
 
-+ (ReuqestTarget *)withType:(ReuqestType)type {
++ (ReuqestTarget *)withType:(ReuqestType)type limit:(NSInteger)limit page:(NSInteger)page {
     ReuqestTarget *target = [ReuqestTarget new];
-
     target.type = type;
+    target.limit = limit;
+    target.page = page;
+    return target;
+}
 
++ (ReuqestTarget *)withType:(ReuqestType)type repository:(Repository *)repository {
+    ReuqestTarget *target = [ReuqestTarget new];
+    target.type = type;
+    target.repository = repository;
     return target;
 }
 
 - (NSString *)path:(ReuqestType)type {
     switch (type) {
         case repositories:
-            return [NSString stringWithFormat:@"/search/repositories"];
+            return @"/search/repositories";
+            break;
+            case detailedRepository:
+            return [NSString stringWithFormat:@"/repos/%@/commits/%@", _repository.fullName, _repository.branch];
             break;
     }
     return nil;
 }
 
-- (NSArray *)parameters:(ReuqestType)type page:(NSInteger)page perPage:(NSInteger)perPage {
+- (NSArray *)parameters:(ReuqestType)type {
     switch (type) {
         case repositories:
             return @[
                 [NSURLQueryItem queryItemWithName:@"q" value:@"language:swift+topic:swift"],
                 [NSURLQueryItem queryItemWithName:@"sort" value:@"stars"],
                 [NSURLQueryItem queryItemWithName:@"order" value:@"desc"],
-                [NSURLQueryItem queryItemWithName:@"per_page" value: [NSString stringWithFormat:@"%ld",(long)perPage]],
-                 [NSURLQueryItem queryItemWithName:@"page" value: [NSString stringWithFormat:@"%ld",(long)page]]
+                [NSURLQueryItem queryItemWithName:@"per_page" value: [NSString stringWithFormat:@"%ld",(long)_limit]],
+                [NSURLQueryItem queryItemWithName:@"page" value: [NSString stringWithFormat:@"%ld",(long)_page]]
             ];
+            break;
+        case detailedRepository:
+            return nil;
             break;
     }
     return nil;
@@ -45,7 +66,10 @@
 - (NSString *)method:(ReuqestType)type {
     switch (type) {
         case repositories:
-            return [NSString stringWithFormat:@"GET"];
+            return @"GET";
+            break;
+        case detailedRepository:
+             return @"GET";
             break;
     }
     return nil;

@@ -7,13 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NetworkService.h"
+
+typedef enum{
+    update,
+    error
+}ListRepositoryViewModelType;
 
 @interface ListRepositoryViewModel : NSObject
 
-@property (strong, nonatomic) NSArray *repositories;
-@property(strong,nonatomic)void(^completionHandler)(NSString*string);
+@property (strong, nonatomic) NetworkService *service;
+@property (strong, nonatomic) RepositoryList *repositoryList;
+
+@property (strong,nonatomic) void(^completionHandler)(ListRepositoryViewModelType type);
+
+@property (assign, nonatomic) BOOL isNewList;
+
+- (void)updateRepositories;
+- (void)loadRepositories;
 
 - (void)requestRepositories;
-- (void)updateRepositories;
 
 @end

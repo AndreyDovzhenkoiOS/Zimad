@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Repository.h"
 
 typedef enum{
-    repositories
+    repositories,
+    detailedRepository
 }ReuqestType;
 
 @interface ReuqestTarget : NSObject
@@ -18,12 +20,13 @@ typedef enum{
 
 - (NSString *)path:(ReuqestType)target;
 
-- (NSArray *)parameters:(ReuqestType)type page:(NSInteger)page perPage:(NSInteger)perPage;
+- (NSArray *)parameters:(ReuqestType)type;
 
 - (NSString *)method:(ReuqestType)target;
 
++ (ReuqestTarget *)withType:(ReuqestType)type limit:(NSInteger)limit page:(NSInteger)page;
 
-+ (ReuqestTarget *)withType:(ReuqestType)type;
++ (ReuqestTarget *)withType:(ReuqestType)type repository:(Repository *)repository;
 
 @end
 

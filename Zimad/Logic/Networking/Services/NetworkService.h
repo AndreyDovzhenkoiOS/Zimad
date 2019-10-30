@@ -6,10 +6,17 @@
 //  Copyright © 2019 Andrey Dovzhenko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "RepositoryList.h"
+#import "Author.h"
+#import "Repository.h"
 
 @interface NetworkService : NSObject
 
--(void)getRepositories:(void (^)(NSArray*))completion;
+- (void)getRepositoriesWith:(NSInteger)limit page:(NSInteger)page completion:(void (^)(RepositoryList*))completion;
+
+- (void)getDetailedRepositoryWith:(Repository *)repository completion:(void (^)(Author*))completion;
+
+- (void)getImageWithUrl:(NSURL *)url completion:(void (^)(UIImage *))completion;
 
 @end

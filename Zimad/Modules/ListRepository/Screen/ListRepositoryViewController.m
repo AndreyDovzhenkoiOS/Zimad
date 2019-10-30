@@ -12,6 +12,7 @@
 #import "NSObject+NSObject.h"
 #import "UITableView+UITableView.h"
 #import "RefreshControl.h"
+#import "DetailedRepositoryViewController.h"
 
 @interface ListRepositoryViewController () <SSARefreshControlDelegate>
 
@@ -35,11 +36,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [_viewModel requestRepositories];
+    [self.navigationController.navigationBar setHidden: YES];
+    [_viewModel loadRepositories];
 }
 
 - (void)configurationUI {
-    [self.navigationController.navigationBar setHidden: YES];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 100;
     [self configureHeaderView];
@@ -65,12 +66,22 @@
 - (void)setupViewModel {
     _viewModel = [ListRepositoryViewModel new];
     __weak typeof(self) weakSelf = self;
-    _viewModel.completionHandler = ^(NSString *string) {
+    _viewModel.completionHandler = ^(ListRepositoryViewModelType type) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf.refreshControl endRefreshing];
-            [weakSelf.tableView reloadWithAnimationFadeInTop];
+            switch (type) {
+                case update:
+                    [weakSelf.refreshControl endRefreshing];
+                    if (weakSelf.viewModel.isNewList) {
+                        weakSelf.viewModel.isNewList = NO;
+                        [weakSelf.tableView reloadWithAnimationFadeInTop];
+                    } else {
+                        [weakSelf.tableView reloadData];
+                    }
+                    break;
+                case error:
+                    break;
+            }
         });
-        
     };
 }
 
@@ -80,35 +91,42 @@
 
 - (void)loadDataSource {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        sleep(1.5);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.viewModel updateRepositories];
         });
     });
 }
 
-- (void)completionHandlers {
-    [self.refreshControl endRefreshing];
-    [self.tableView reloadWithAnimationFadeInTop];
+- (void)transitionToDetailedRepository:(NSInteger)index {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"DetailedRepository" bundle:nil];
+    DetailedRepositoryViewController *viewController = [storyboard instantiateViewControllerWithIdentifier: [DetailedRepositoryViewController identifier]];
+    viewController.viewModel = [DetailedRepositoryViewModel withRepository:_viewModel.repositoryList.repositories[index]];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _viewModel.repositories.count;
+    return _viewModel.repositoryList.repositories.count;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     RepositoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: [RepositoryTableViewCell identifier]];
-    [cell configureWith:_viewModel.repositories[indexPath.row]];
+    [cell configureWith: _viewModel.repositoryList.repositories[indexPath.row]
+                service: _viewModel.service];
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.tableView reloadWithAnimationFadeInTop];
+    [self transitionToDetailedRepository:indexPath.row];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y >scrollView.contentSize.height - scrollView.frame.size.height) {
+        [_viewModel loadRepositories];
+    }
+}
 
 @end

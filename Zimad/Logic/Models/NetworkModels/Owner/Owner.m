@@ -12,11 +12,9 @@
 
 + (Owner*)withDictionary:(NSDictionary *)dictionary {
     Owner *owner = [Owner new];
-
     owner.Id = dictionary[@"id"];
     owner.login = dictionary[@"login"];
     owner.avatarUrl = [NSURL URLWithString:dictionary[@"avatar_url"]];
-
     return owner;
 }
 
