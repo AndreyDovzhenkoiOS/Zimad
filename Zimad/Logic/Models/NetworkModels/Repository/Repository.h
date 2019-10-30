@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Owner.h"
 
 @interface Repository : NSObject
 
@@ -17,7 +16,7 @@
 @property (strong, nonatomic) NSString *fullName;
 @property (strong, nonatomic) NSString *descriptions;
 @property (strong, nonatomic) NSString *branch;
-@property (strong, nonatomic) Owner *owner;
+@property (strong, nonatomic) NSString *avatarUrl;
 
 + (Repository *)withDictionary:(NSDictionary *)dictionary;
 

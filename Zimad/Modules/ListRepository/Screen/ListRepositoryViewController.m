@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (strong, nonatomic) RefreshControl *refreshControl;
 @property (strong, nonatomic) ListRepositoryViewModel *viewModel;
@@ -37,6 +38,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden: YES];
+    [self.activityIndicator startAnimating];
     [_viewModel loadRepositories];
 }
 
@@ -65,10 +67,12 @@
 - (void)setupViewModel {
     _viewModel = [ListRepositoryViewModel new];
     __weak typeof(self) weakSelf = self;
+
     _viewModel.completionHandler = ^(ListRepositoryViewModelType type) {
         dispatch_async(dispatch_get_main_queue(), ^{
             switch (type) {
                 case update:
+                    [weakSelf.activityIndicator stopAnimating];
                     [weakSelf.refreshControl endRefreshing];
                     if (weakSelf.viewModel.isNewList) {
                         weakSelf.viewModel.isNewList = NO;

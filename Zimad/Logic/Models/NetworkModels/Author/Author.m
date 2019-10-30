@@ -10,12 +10,13 @@
 
 @implementation Author
 
-+ (Author*)withDictionary:(NSDictionary *)dictionary {
++ (Author*)withDictionary:(NSDictionary *)dictionary repositoryId:(NSInteger)repositoryId {
     Author *author = [Author new];
+    author.Id = repositoryId;
     author.name = dictionary[@"commit"][@"author"][@"name"];
     author.nameCommit = dictionary[@"commit"][@"message"];
     author.hashCommit = dictionary[@"sha"];
-    author.avatarUrl = [NSURL URLWithString: dictionary[@"author"][@"avatar_url"]];
+    author.avatarUrl = dictionary[@"author"][@"avatar_url"];
     return author;
 }
 

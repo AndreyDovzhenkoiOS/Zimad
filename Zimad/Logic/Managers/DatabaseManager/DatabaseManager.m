@@ -59,6 +59,18 @@
     return [NSArray new];
 }
 
+-(NSManagedObject*)getObjectFromDatabase:(NSString *)entityName key:(NSString *)key value:(NSInteger)value{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: entityName];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"%K=%ld",key, value]];
+    NSError* error;
+    if (error) {
+        NSLog(@"%@",error.localizedDescription);
+    }else{
+        return [_context executeFetchRequest:request error:&error].firstObject;
+    }
+    return nil;
+}
+
 - (void)setPropertyForObject:(NSManagedObject *)object dictionaryProperty:(NSDictionary *)dictionaryProperty {
 
     for (NSString *key in dictionaryProperty.allKeys) {
@@ -68,6 +80,50 @@
     }
 
     [self saveContext];
+}
+
+
+- (RepositoryList *)getRepositoryListFromDatabase {
+    NSMutableArray *items = [NSMutableArray new];
+    [items addObjectsFromArray:[self getObjectsFromDatabase:@"RepositoryModel"]];
+    RepositoryList *repositoryList = [RepositoryList new];
+    repositoryList.repositories = items;
+    return repositoryList;
+}
+
+- (void)addToDatabaseForRepositoryList:(RepositoryList *)repositoryList {
+    for (Repository *repository in repositoryList.repositories) {
+        NSDictionary *dictionary = @{
+            @"id": repository.Id,
+            @"fullName": repository.fullName,
+            @"title": repository.title,
+            @"url": repository.url,
+            @"avatarUrl": repository.avatarUrl,
+            @"descriptions": repository.descriptions,
+            @"branch": repository.branch
+        };
+        if (![self getObjectFromDatabase: @"RepositoryModel" key:@"id" value: repository.Id.integerValue]) {
+            [self addObjectInDatabase:@"RepositoryModel" dictionaryProperty:dictionary];
+        }
+    }
+}
+
+- (Author *)getAuthorFromDatabase:(NSInteger)Id {
+    Author *author = (Author*) [self getObjectFromDatabase:@"AuthorModel" key:@"id" value:Id];
+    return author;
+}
+
+- (void)addToDatabaseForAuthor:(Author *)author {
+    NSDictionary *dictionary = @{
+        @"id": @(author.Id),
+        @"avatarUrl": author.avatarUrl,
+        @"name": author.name,
+        @"nameCommit": author.nameCommit,
+        @"nameCommit": author.hashCommit,
+    };
+    if (![self getObjectFromDatabase: @"AuthorModel" key:@"id" value: author.Id]) {
+        [self addObjectInDatabase:@"AuthorModel" dictionaryProperty:dictionary];
+    }
 }
 
 @end

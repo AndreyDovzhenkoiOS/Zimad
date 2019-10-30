@@ -10,11 +10,12 @@
 
 @interface Author : NSObject
 
-@property (strong, nonatomic) NSURL *avatarUrl;
+@property (assign, nonatomic) NSInteger Id;
+@property (strong, nonatomic) NSString *avatarUrl;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *nameCommit;
 @property (strong, nonatomic) NSString *hashCommit;
 
-+ (Author *)withDictionary:(NSDictionary *)dictionary;
++ (Author*)withDictionary:(NSDictionary *)dictionary repositoryId:(NSInteger)repositoryId;
 
 @end

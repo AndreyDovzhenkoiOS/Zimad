@@ -29,7 +29,7 @@
 
 - (void)prepareForReuse {
     [super prepareForReuse];
-    _iconImageView.image = nil;
+    _iconImageView.image = [UIImage imageNamed:@"emptyIcon"];
 }
 
 - (void)configureWith:(Repository *)repository service:(NetworkService*)service {
@@ -37,7 +37,7 @@
     _titleLabel.text = repository.title;
     _nameLabel.text = repository.fullName;
     _descriptionLabel.text = repository.descriptions;
-    [_service getImageWithUrl:repository.owner.avatarUrl completion:^(UIImage *image) {
+    [_service getImageWithUrl:[NSURL URLWithString: repository.avatarUrl] completion:^(UIImage *image) {
         self.iconImageView.image = image;
     }];
 }

@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <entity name="AuthorModel" representedClassName="AuthorModel" syncable="YES" codeGenerationType="class">
+    <entity name="AuthorModel" representedClassName="AuthorModel" syncable="YES">
         <attribute name="avatarUrl" optional="YES" attributeType="String"/>
         <attribute name="hashComit" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="nameComit" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="OwnerModel" representedClassName="OwnerModel" syncable="YES" codeGenerationType="class">
+    <entity name="RepositoryModel" representedClassName="RepositoryModel" syncable="YES">
         <attribute name="avatarUrl" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-    </entity>
-    <entity name="RepositoryModel" representedClassName="RepositoryModel" syncable="YES" codeGenerationType="class">
         <attribute name="branch" optional="YES" attributeType="String"/>
         <attribute name="descriptions" optional="YES" attributeType="String"/>
-        <attribute name="fullName" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="RepositoryModel" positionX="-63" positionY="-18" width="128" height="133"/>
-        <element name="OwnerModel" positionX="-54" positionY="36" width="128" height="73"/>
-        <element name="AuthorModel" positionX="-36" positionY="45" width="128" height="103"/>
+        <element name="AuthorModel" positionX="-36" positionY="45" width="128" height="118"/>
+        <element name="RepositoryModel" positionX="-63" positionY="-18" width="128" height="148"/>
     </elements>
 </model>

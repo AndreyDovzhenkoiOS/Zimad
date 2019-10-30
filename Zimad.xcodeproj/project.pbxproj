@@ -35,7 +35,6 @@
 		8AFC1DAD2368B40900F8E022 /* ReuqestProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFC1DAC2368B40900F8E022 /* ReuqestProvider.m */; };
 		8AFC1DB02368B47700F8E022 /* ReuqestTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFC1DAF2368B47700F8E022 /* ReuqestTarget.m */; };
 		8AFC1DB32368B48D00F8E022 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFC1DB22368B48D00F8E022 /* NetworkService.m */; };
-		8AFC1DB82368C57A00F8E022 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFC1DB72368C57A00F8E022 /* Owner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,8 +89,6 @@
 		8AFC1DAF2368B47700F8E022 /* ReuqestTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReuqestTarget.m; sourceTree = "<group>"; };
 		8AFC1DB12368B48D00F8E022 /* NetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
 		8AFC1DB22368B48D00F8E022 /* NetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
-		8AFC1DB62368C57A00F8E022 /* Owner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
-		8AFC1DB72368C57A00F8E022 /* Owner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Owner.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,15 +149,6 @@
 				8A002DE923620A6C000E9AB7 /* TableViewCell */,
 			);
 			path = Screen;
-			sourceTree = "<group>";
-		};
-		8A181A6B2369BC87009AEFD0 /* Owner */ = {
-			isa = PBXGroup;
-			children = (
-				8AFC1DB62368C57A00F8E022 /* Owner.h */,
-				8AFC1DB72368C57A00F8E022 /* Owner.m */,
-			);
-			path = Owner;
 			sourceTree = "<group>";
 		};
 		8A181A6C2369BC89009AEFD0 /* Repository */ = {
@@ -313,7 +301,6 @@
 			children = (
 				8A181A6D2369BC8C009AEFD0 /* RepositoryList */,
 				8A181A6C2369BC89009AEFD0 /* Repository */,
-				8A181A6B2369BC87009AEFD0 /* Owner */,
 				8A181A6E2369BCA1009AEFD0 /* Author */,
 			);
 			path = NetworkModels;
@@ -502,7 +489,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AFC1DA023689C7C00F8E022 /* PullToRefreshAnimator.m in Sources */,
-				8AFC1DB82368C57A00F8E022 /* Owner.m in Sources */,
 				8A181A672369A8E1009AEFD0 /* Author.m in Sources */,
 				8A72F21B2360D40100F09F0B /* main.m in Sources */,
 				8A002DFA23621AD5000E9AB7 /* Repository.m in Sources */,

@@ -52,11 +52,19 @@
                                     <constraint firstItem="D1b-vO-wTd" firstAttribute="top" secondItem="YdD-gb-dgv" secondAttribute="top" id="qY7-2g-MnP"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="C9J-8y-QGX">
+                                <rect key="frame" x="124" y="397.5" width="166" height="155"/>
+                                <color key="color" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YdD-gb-dgv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4iT-v5-ujz"/>
+                            <constraint firstItem="C9J-8y-QGX" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.4" id="4tb-P7-vfu"/>
                             <constraint firstItem="YdD-gb-dgv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9N1-Ag-vxJ"/>
+                            <constraint firstItem="C9J-8y-QGX" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="A3k-Pi-g4j"/>
+                            <constraint firstItem="C9J-8y-QGX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FL9-1Z-pTU"/>
+                            <constraint firstItem="C9J-8y-QGX" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="IBE-pd-VVd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cA0-sv-4w5" secondAttribute="trailing" id="KHL-4q-RFX"/>
                             <constraint firstItem="YdD-gb-dgv" firstAttribute="top" secondItem="cA0-sv-4w5" secondAttribute="bottom" id="Q7M-GH-if3"/>
                             <constraint firstAttribute="bottom" secondItem="YdD-gb-dgv" secondAttribute="bottom" id="ntT-2n-e5F"/>
@@ -68,6 +76,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="QF7-Lb-eTQ"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="C9J-8y-QGX" id="ACJ-6G-2O6"/>
                         <outlet property="headerView" destination="cA0-sv-4w5" id="6CG-6o-67I"/>
                         <outlet property="tableView" destination="D1b-vO-wTd" id="0bA-pQ-bgb"/>
                     </connections>

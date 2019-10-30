@@ -34,7 +34,7 @@
 - (void)requestDetailedRepository {
     [_service getDetailedRepositoryWith: _repository completion:^(Author *author) {
         self.completionHandler(author);
-        [self loadAvatarWith: author.avatarUrl];
+        [self loadAvatarWith: [NSURL URLWithString:author.avatarUrl]];
     }];
 }
 

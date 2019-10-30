@@ -8,6 +8,7 @@
 
 #import "NetworkService.h"
 #import "ReuqestProvider.h"
+#import "DatabaseManager.h"
 
 @interface NetworkService ()
 
@@ -35,8 +36,12 @@
         if (!error) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) response;
             if (httpResponse.statusCode == 200) {
-              completion([RepositoryList withDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error]]);
+                RepositoryList *repositoryList = [RepositoryList withDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error]];
+                [DatabaseManager.shared addToDatabaseForRepositoryList:repositoryList];
+                completion(repositoryList);
             }
+        } else {
+            completion([DatabaseManager.shared getRepositoryListFromDatabase]);
         }
     }];
 }
@@ -46,8 +51,12 @@
         if (!error) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) response;
             if (httpResponse.statusCode == 200) {
-              completion([Author withDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error]]);
+                Author *author = [Author withDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error] repositoryId: repository.Id.integerValue];
+                [DatabaseManager.shared addToDatabaseForAuthor:author];
+              completion(author);
             }
+        } else {
+            completion([DatabaseManager.shared getAuthorFromDatabase:repository.Id.integerValue]);
         }
     }];
 }

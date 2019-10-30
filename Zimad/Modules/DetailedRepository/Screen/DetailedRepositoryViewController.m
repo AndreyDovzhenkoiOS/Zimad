@@ -10,13 +10,14 @@
 #import "UIView+UIView.h"
 
 @interface DetailedRepositoryViewController ()
+
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *branchLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameComitLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hashComitLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImaveView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -31,6 +32,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.activityIndicator startAnimating];
     [self.viewModel requestDetailedRepository];
 }
 
@@ -54,6 +56,7 @@
     
     _viewModel.completionHandler= ^(Author *author){
         [weakSelf configureWith:author];
+        [weakSelf.activityIndicator stopAnimating];
     };
 }
 

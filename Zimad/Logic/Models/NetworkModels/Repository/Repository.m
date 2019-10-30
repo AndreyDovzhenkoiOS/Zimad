@@ -18,7 +18,7 @@
     repository.url = dictionary[@"url"];
     repository.branch = dictionary[@"default_branch"];
     repository.descriptions = dictionary[@"description"];
-    repository.owner = [Owner withDictionary:dictionary[@"owner"]];
+    repository.avatarUrl = dictionary[@"owner"][@"avatar_url"];
     return repository;
 }
 
