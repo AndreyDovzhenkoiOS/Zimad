@@ -64,7 +64,6 @@
 - (void)getImageWithUrl:(NSURL *)url completion:(void (^)(UIImage *))completion {
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     NSCachedURLResponse *response = [_cache cachedResponseForRequest:request];
-      [self downloadImageWith:request completion:completion];
     if (response) {
         completion([UIImage imageWithData: response.data]);
     } else {
@@ -74,9 +73,11 @@
 
 - (void)downloadImageWith:(NSURLRequest *)request completion:(void (^)(UIImage *))completion {
     [[_provider createDataTask:request completion:^(NSError *error, NSURLResponse *response, NSData *data) {
-        NSCachedURLResponse *cached = [[NSCachedURLResponse alloc] initWithResponse:response data:data];
-        [self.cache storeCachedResponse:cached forRequest:request];
-        completion([UIImage imageWithData:data]);
+        if (!error) {
+            NSCachedURLResponse *cached = [[NSCachedURLResponse alloc] initWithResponse:response data:data];
+            [self.cache storeCachedResponse:cached forRequest:request];
+            completion([UIImage imageWithData:data]);
+        }
     }] resume];
 }
 
