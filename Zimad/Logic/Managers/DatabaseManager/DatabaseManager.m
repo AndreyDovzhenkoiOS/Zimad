@@ -120,7 +120,7 @@
         @"avatarUrl": author.avatarUrl,
         @"name": author.name,
         @"nameCommit": author.nameCommit,
-        @"nameCommit": author.hashCommit,
+        @"hashComit": author.hashCommit,
     };
     if (![self getObjectFromDatabase: @"AuthorModel" key:@"id" value: author.Id]) {
         [self addObjectInDatabase:@"AuthorModel" dictionaryProperty:dictionary];
