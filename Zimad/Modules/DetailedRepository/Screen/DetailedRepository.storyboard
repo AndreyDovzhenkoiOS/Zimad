@@ -63,8 +63,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="04X-Cm-tYs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItS-qF-JOi">
@@ -76,13 +76,13 @@
                                 <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4S1-ve-O7O">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4S1-ve-O7O">
                                 <rect key="frame" x="20" y="575" width="374" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="OQA-TS-haz"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="OQA-TS-haz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="rSR-Cc-k1I">
@@ -135,8 +135,8 @@
                     <connections>
                         <outlet property="activityIndicator" destination="rSR-Cc-k1I" id="MBL-jr-uxS"/>
                         <outlet property="avatarImaveView" destination="eic-JG-nBC" id="5zQ-pG-e7V"/>
-                        <outlet property="branchLabel" destination="4S1-ve-O7O" id="cCQ-dg-l9S"/>
-                        <outlet property="hashComitLabel" destination="hB7-3B-WE6" id="wWT-P4-V2Y"/>
+                        <outlet property="branchLabel" destination="hB7-3B-WE6" id="iJt-sw-5bQ"/>
+                        <outlet property="hashComitLabel" destination="4S1-ve-O7O" id="y40-SZ-a4w"/>
                         <outlet property="headerView" destination="k2A-Us-bYC" id="jQm-73-SRh"/>
                         <outlet property="nameComitLabel" destination="ItS-qF-JOi" id="vdC-cr-EE9"/>
                         <outlet property="nameLabel" destination="Wv0-D3-o86" id="YhF-z0-v94"/>

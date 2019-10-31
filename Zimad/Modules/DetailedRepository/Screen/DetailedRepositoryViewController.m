@@ -70,9 +70,9 @@
 
 - (void)configureWith:(Author *)author {
     _nameLabel.text = author.name;
-    _hashComitLabel.text = author.hashCommit;
-    _nameComitLabel.text = author.nameCommit;
-    _branchLabel.text = _viewModel.repository.branch;
+    _branchLabel.text = [NSString stringWithFormat:@"Branch: %@", _viewModel.repository.branch];
+    _hashComitLabel.text = [NSString stringWithFormat:@"Hash comit:%@", author.hashCommit];
+    _nameComitLabel.text = [NSString stringWithFormat:@"Name comit:\n %@", author.nameCommit];
 }
 
 - (void)configureAlertView {
