@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum{
+    present,
+    dismiss
+}AlertType;
+
 @protocol AlertViewDelegate <NSObject>
 
-- (void)onTapAlertButton;
+- (void)animationHandler:(AlertType)type;
 
 @end
 
@@ -19,6 +24,8 @@
 @property (weak, nonatomic) id<AlertViewDelegate> delegate;
 
 - (void)configureWithTitle:(NSString *)title description:(NSString *)description;
+
+- (void)setAnimationAletWith:(AlertType)type;
 
 @end
 

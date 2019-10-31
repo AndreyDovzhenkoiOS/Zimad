@@ -75,33 +75,21 @@
     _alertView.center = self.view.center;
     _alertView.frame = CGRectMake(0, 0, 300, 200);
     _alertView.center = self.view.center;
-    [_alertView configureWithTitle:@"Message" description:@"Something went wrong! Internet failure or service not working. Try it next time. :("];
     [self.view addSubview: _alertView];
+    
+    [_alertView configureWithTitle:@"Message" description:@"Something went wrong! Internet failure or service not working. Try it next time. :("];
+    [_alertView setAnimationAletWith:present];
 }
 
-- (void)animateIn {
-    _alertView.transform = CGAffineTransformMakeScale(1.3, 1.3);
-    _alertView.alpha = 0;
-
-    [UIView animateWithDuration:0.4 animations:^{
-        self.visualEffect.alpha = 1;
-        self.alertView.alpha = 1;
-        self.alertView.transform = CGAffineTransformMakeScale(1, 1);
-    }];
-}
-
-- (void)animateOut {
-    [UIView animateWithDuration:0.4 animations:^{
-        self.visualEffect.alpha = 0;
-        self.alertView.alpha = 0;
-        self.alertView.transform = CGAffineTransformMakeScale(1.3, 1.3);
-    } completion:^(BOOL finished) {
-        [self.alertView removeFromSuperview];
-    }];
-}
-
-- (void)onTapAlertButton {
-    [self animateOut];
+- (void)animationHandler:(AlertType)type {
+    switch (type) {
+        case present:
+            _visualEffect.alpha = 1;
+            break;
+            case dismiss:
+            _visualEffect.alpha = 0;
+            break;
+    }
 }
 
 - (void)setupViewModel {
@@ -125,7 +113,6 @@
                     break;
                 case error:
                     [weakSelf configureAlertView];
-                    [weakSelf animateIn];
                     break;
             }
         });

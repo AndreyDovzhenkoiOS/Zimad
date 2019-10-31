@@ -29,8 +29,39 @@
     _descriptionLabel.text = description;
 }
 
+- (void)setAnimationAletWith:(AlertType)type {
+    switch (type) {
+        case present:
+            [self animateIn];
+            break;
+        case dismiss:
+            [self animateOut];
+            break;
+    }
+}
+- (void)animateIn {
+    self.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    self.alpha = 0;
+
+    [UIView animateWithDuration:0.4 animations:^{
+        self.alpha = 1;
+        self.transform = CGAffineTransformMakeScale(1, 1);
+        [self.delegate animationHandler:(present)];
+    }];
+}
+
+- (void)animateOut {
+    [UIView animateWithDuration:0.4 animations:^{
+        self.alpha = 0;
+        self.transform = CGAffineTransformMakeScale(1.3, 1.3);
+        [self.delegate animationHandler:(dismiss)];
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
+}
+
 - (IBAction)alertAction:(id)sender {
-    [_delegate onTapAlertButton];
+    [self setAnimationAletWith:dismiss];
 }
 
 

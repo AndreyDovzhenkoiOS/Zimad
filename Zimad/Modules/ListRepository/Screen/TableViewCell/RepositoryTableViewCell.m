@@ -38,6 +38,7 @@
     _titleLabel.text = repository.title;
     _nameLabel.text = repository.fullName;
     _descriptionLabel.text = repository.descriptions;
+
     [_activityIndicator startAnimating];
     [_service getImageWithUrl:[NSURL URLWithString: repository.avatarUrl] completion:^(UIImage *image) {
         self.iconImageView.image = image;
