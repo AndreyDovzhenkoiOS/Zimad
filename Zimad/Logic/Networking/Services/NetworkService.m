@@ -46,17 +46,17 @@
     }];
 }
 
-- (void)getDetailedRepositoryWith:(Repository *)repository completion:(void (^)(Author*))completion {
+- (void)getDetailedRepositoryWith:(Repository *)repository completion:(void (^)(Author*, BOOL))completion {
     [_provider request:[ReuqestTarget withType: detailedRepository repository:repository] completion:^(NSError *error, NSURLResponse *response, NSData *data) {
         if (!error) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) response;
             if (httpResponse.statusCode == 200) {
                 Author *author = [Author withDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error] repositoryId: repository.repositoryId.integerValue];
                 [DatabaseManager.shared addToDatabaseForAuthor:author];
-              completion(author);
+              completion(author, NO);
             }
         } else {
-            completion([DatabaseManager.shared getAuthorFromDatabase:repository.repositoryId.integerValue]);
+            completion([DatabaseManager.shared getAuthorFromDatabase:repository.repositoryId.integerValue], YES);
         }
     }];
 }

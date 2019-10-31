@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef enum{
-    present,
-    dismiss
+    present = 1,
+    dismiss = 0
 }AlertType;
 
 @protocol AlertViewDelegate <NSObject>

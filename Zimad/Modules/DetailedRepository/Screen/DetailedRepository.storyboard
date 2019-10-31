@@ -89,6 +89,14 @@
                                 <rect key="frame" x="83" y="371" width="248" height="164"/>
                                 <color key="color" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcl-zx-JXI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="v01-Bg-Ff7">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -96,13 +104,16 @@
                             <constraint firstItem="4S1-ve-O7O" firstAttribute="top" secondItem="ItS-qF-JOi" secondAttribute="bottom" constant="16" id="5nv-99-H1k"/>
                             <constraint firstItem="k2A-Us-bYC" firstAttribute="leading" secondItem="Pwr-Hv-hVM" secondAttribute="leading" id="9DL-Kn-eBI"/>
                             <constraint firstItem="hB7-3B-WE6" firstAttribute="leading" secondItem="Wv0-D3-o86" secondAttribute="leading" id="AE1-B2-6pu"/>
+                            <constraint firstItem="qcl-zx-JXI" firstAttribute="top" secondItem="kt5-oA-blU" secondAttribute="top" id="DHc-p1-dAG"/>
                             <constraint firstItem="ItS-qF-JOi" firstAttribute="trailing" secondItem="hB7-3B-WE6" secondAttribute="trailing" id="FRp-nr-lbF"/>
                             <constraint firstItem="ItS-qF-JOi" firstAttribute="leading" secondItem="hB7-3B-WE6" secondAttribute="leading" id="Fu1-p9-b4H"/>
+                            <constraint firstItem="qcl-zx-JXI" firstAttribute="leading" secondItem="Pwr-Hv-hVM" secondAttribute="leading" id="GFW-XM-qZD"/>
                             <constraint firstItem="eic-JG-nBC" firstAttribute="top" secondItem="k2A-Us-bYC" secondAttribute="bottom" constant="16" id="GPg-sF-FCM"/>
                             <constraint firstItem="eic-JG-nBC" firstAttribute="centerX" secondItem="Pwr-Hv-hVM" secondAttribute="centerX" id="NJV-0F-UdJ"/>
                             <constraint firstItem="Wv0-D3-o86" firstAttribute="top" secondItem="eic-JG-nBC" secondAttribute="bottom" constant="20" id="OrG-bo-lz0"/>
                             <constraint firstItem="rSR-Cc-k1I" firstAttribute="centerY" secondItem="Pwr-Hv-hVM" secondAttribute="centerY" id="PB3-mk-JOh"/>
                             <constraint firstItem="hB7-3B-WE6" firstAttribute="trailing" secondItem="Wv0-D3-o86" secondAttribute="trailing" id="RqD-y8-9u8"/>
+                            <constraint firstAttribute="bottom" secondItem="qcl-zx-JXI" secondAttribute="bottom" id="RzG-pp-FB4"/>
                             <constraint firstItem="Wv0-D3-o86" firstAttribute="leading" secondItem="Pwr-Hv-hVM" secondAttribute="leading" constant="20" id="XnU-Yp-2xy"/>
                             <constraint firstItem="hB7-3B-WE6" firstAttribute="top" secondItem="Wv0-D3-o86" secondAttribute="bottom" constant="8" id="aJY-ps-iCF"/>
                             <constraint firstItem="4S1-ve-O7O" firstAttribute="trailing" secondItem="ItS-qF-JOi" secondAttribute="trailing" id="aT8-MB-Ffo"/>
@@ -110,6 +121,7 @@
                             <constraint firstItem="4S1-ve-O7O" firstAttribute="leading" secondItem="ItS-qF-JOi" secondAttribute="leading" id="d2K-IA-MwN"/>
                             <constraint firstItem="k2A-Us-bYC" firstAttribute="top" secondItem="kt5-oA-blU" secondAttribute="top" id="d9E-GM-dsE"/>
                             <constraint firstItem="rSR-Cc-k1I" firstAttribute="height" secondItem="Pwr-Hv-hVM" secondAttribute="height" multiplier="0.2" id="glx-hs-gDw"/>
+                            <constraint firstItem="Pwr-Hv-hVM" firstAttribute="trailing" secondItem="qcl-zx-JXI" secondAttribute="trailing" id="kH1-nx-Mgg"/>
                             <constraint firstItem="rSR-Cc-k1I" firstAttribute="width" secondItem="Pwr-Hv-hVM" secondAttribute="width" multiplier="0.6" id="q3Z-SH-Uce"/>
                             <constraint firstItem="k2A-Us-bYC" firstAttribute="height" secondItem="Pwr-Hv-hVM" secondAttribute="height" multiplier="0.2" id="r4G-8I-e9v"/>
                             <constraint firstItem="Pwr-Hv-hVM" firstAttribute="trailing" secondItem="Wv0-D3-o86" secondAttribute="trailing" constant="20" id="sFK-wV-RL3"/>
@@ -128,6 +140,7 @@
                         <outlet property="headerView" destination="k2A-Us-bYC" id="jQm-73-SRh"/>
                         <outlet property="nameComitLabel" destination="ItS-qF-JOi" id="vdC-cr-EE9"/>
                         <outlet property="nameLabel" destination="Wv0-D3-o86" id="YhF-z0-v94"/>
+                        <outlet property="visualEffect" destination="qcl-zx-JXI" id="OKZ-qx-Q91"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLk-cP-CcR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

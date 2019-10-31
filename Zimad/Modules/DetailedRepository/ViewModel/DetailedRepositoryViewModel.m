@@ -32,8 +32,11 @@
 
 
 - (void)requestDetailedRepository {
-    [_service getDetailedRepositoryWith: _repository completion:^(Author *author) {
+    [_service getDetailedRepositoryWith: _repository completion:^(Author *author, BOOL isError) {
         self.completionHandler(author);
+        if (isError) {
+            self.completionHandlerError();
+        }
         [self loadAvatarWith: [NSURL URLWithString:author.avatarUrl]];
     }];
 }

@@ -8,8 +8,9 @@
 
 #import "DetailedRepositoryViewController.h"
 #import "UIView+UIView.h"
+#import "AlertView.h"
 
-@interface DetailedRepositoryViewController ()
+@interface DetailedRepositoryViewController () <AlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *branchLabel;
@@ -18,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *hashComitLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImaveView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffect;
+
+@property (strong, nonatomic) AlertView *alertView;
 
 @end
 
@@ -54,9 +58,13 @@
         weakSelf.avatarImaveView.image = image;
     };
     
-    _viewModel.completionHandler= ^(Author *author){
+    _viewModel.completionHandler = ^(Author *author){
         [weakSelf configureWith:author];
         [weakSelf.activityIndicator stopAnimating];
+    };
+
+    _viewModel.completionHandlerError = ^(void) {
+        [weakSelf configureAlertView];
     };
 }
 
@@ -65,6 +73,22 @@
     _hashComitLabel.text = author.hashCommit;
     _nameComitLabel.text = author.nameCommit;
     _branchLabel.text = _viewModel.repository.branch;
+}
+
+- (void)configureAlertView {
+    _alertView = [[[NSBundle mainBundle] loadNibNamed:@"AlertView" owner:self options:nil] firstObject];
+    _alertView.delegate = self;
+    _alertView.center = self.view.center;
+    _alertView.frame = CGRectMake(0, 0, 300, 200);
+    _alertView.center = self.view.center;
+    [self.view addSubview: _alertView];
+    
+    [_alertView configureWithTitle:@"Message" description:@"Something went wrong! Internet failure or service not working. Try it next time. :("];
+    [_alertView setAnimationAletWith:present];
+}
+
+- (void)animationHandler:(AlertType)type {
+    _visualEffect.alpha = type;
 }
 
 - (IBAction)extitAction:(id)sender {

@@ -14,8 +14,9 @@
 @property (strong, nonatomic) Repository *repository;
 @property (strong, nonatomic) Author *author;
 
-@property(strong,nonatomic)void(^completionHandlerAvatar)(UIImage* image);
-@property(strong,nonatomic)void(^completionHandler)(Author* author);
+@property (strong, nonatomic) void(^completionHandlerAvatar)(UIImage* image);
+@property (strong, nonatomic) void(^completionHandler)(Author* author);
+@property (strong,nonatomic)void(^completionHandlerError)(void);
 
 + (DetailedRepositoryViewModel *)withRepository:(Repository *)repository;
 

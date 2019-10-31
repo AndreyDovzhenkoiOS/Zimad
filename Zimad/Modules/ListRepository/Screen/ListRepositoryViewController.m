@@ -82,14 +82,7 @@
 }
 
 - (void)animationHandler:(AlertType)type {
-    switch (type) {
-        case present:
-            _visualEffect.alpha = 1;
-            break;
-            case dismiss:
-            _visualEffect.alpha = 0;
-            break;
-    }
+    _visualEffect.alpha = type;
 }
 
 - (void)setupViewModel {

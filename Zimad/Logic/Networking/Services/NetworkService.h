@@ -15,7 +15,7 @@
 
 - (void)getRepositoriesWith:(NSInteger)limit page:(NSInteger)page completion:(void (^)(RepositoryList*, BOOL))completion;
 
-- (void)getDetailedRepositoryWith:(Repository *)repository completion:(void (^)(Author*))completion;
+- (void)getDetailedRepositoryWith:(Repository *)repository completion:(void (^)(Author*, BOOL))completion;
 
 - (void)getImageWithUrl:(NSURL *)url completion:(void (^)(UIImage *))completion;
 
