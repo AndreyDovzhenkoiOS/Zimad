@@ -119,8 +119,8 @@
         @"id": @(author.Id),
         @"avatarUrl": author.avatarUrl,
         @"name": author.name,
-        @"nameComit": author.nameCommit,
-        @"hashComit": author.hashCommit,
+        @"nameCommit": author.nameCommit,
+        @"hashCommit": author.hashCommit,
     };
     if (![self getObjectFromDatabase: @"AuthorModel" key:@"id" value: author.Id]) {
         [self addObjectInDatabase:@"AuthorModel" dictionaryProperty:dictionary];
