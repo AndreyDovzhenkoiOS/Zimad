@@ -45,7 +45,7 @@ static const NSUInteger KeyframeCount = 60;
     
 }
 
-+(CAKeyframeAnimation *)animationWithCATransform3DForKeyPath:(NSString *)keyPath
++ (CAKeyframeAnimation *)animationWithCATransform3DForKeyPath:(NSString *)keyPath
                                                 easingFunction:(ViewEasingFunctionPointerType)function
                                                     fromMatrix:(CATransform3D)fromMatrix
                                                       toMatrix:(CATransform3D)toMatrix {

@@ -16,6 +16,6 @@
 @property (strong, nonatomic) NSString *nameCommit;
 @property (strong, nonatomic) NSString *hashCommit;
 
-+ (Author*)withDictionary:(NSDictionary *)dictionary repositoryId:(NSInteger)repositoryId;
++ (Author *)withDictionary:(NSDictionary *)dictionary repositoryId:(NSInteger)repositoryId;
 
 @end

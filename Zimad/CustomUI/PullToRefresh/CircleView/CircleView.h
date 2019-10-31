@@ -12,8 +12,7 @@
 
 @interface CircleView : UIView
 
-@property (nonatomic, assign) CGFloat heightBeginToRefresh;
-
-@property (nonatomic, assign) CGFloat offsetY;
+@property (assign, nonatomic) CGFloat heightBeginToRefresh;
+@property (assign, nonatomic) CGFloat offsetY;
 
 @end

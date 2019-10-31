@@ -76,12 +76,14 @@
                 case update:
                     [weakSelf.activityIndicator stopAnimating];
                     [weakSelf.refreshControl endRefreshing];
+    
                     if (weakSelf.viewModel.isNewList) {
                         weakSelf.viewModel.isNewList = NO;
                         [weakSelf.tableView reloadWithAnimationFadeInTop];
                     } else {
                         [weakSelf.tableView reloadData];
                     }
+
                     break;
                 case error:
                     break;
@@ -129,7 +131,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y >scrollView.contentSize.height - scrollView.frame.size.height) {
+    if (scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height) {
         [_viewModel loadRepositories];
     }
 }

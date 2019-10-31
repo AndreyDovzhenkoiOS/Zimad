@@ -14,4 +14,5 @@
 - (void)request:(ReuqestTarget *)target completion:(void (^)(NSError*, NSURLResponse*, NSData*))completion;
 
 - (NSURLSessionDataTask *)createDataTask:(NSURLRequest *)request completion:(void (^)(NSError*, NSURLResponse*, NSData*))completion;
+
 @end

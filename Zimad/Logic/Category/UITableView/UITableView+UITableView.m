@@ -25,7 +25,7 @@
             cell.alpha = 1;
             cell.transform = CGAffineTransformMakeScale(1, 1);
         } completion:^(BOOL finished) {
-            
+
         }];
     }
 }

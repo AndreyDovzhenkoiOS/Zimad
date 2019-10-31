@@ -18,12 +18,11 @@ typedef enum{
 
 @property (strong, nonatomic) NetworkService *service;
 @property (strong, nonatomic) RepositoryList *repositoryList;
-
+@property (assign, nonatomic) BOOL isNewList;
 @property (strong,nonatomic) void(^completionHandler)(ListRepositoryViewModelType type);
 
-@property (assign, nonatomic) BOOL isNewList;
-
 - (void)updateRepositories;
+
 - (void)loadRepositories;
 
 - (void)requestRepositories;

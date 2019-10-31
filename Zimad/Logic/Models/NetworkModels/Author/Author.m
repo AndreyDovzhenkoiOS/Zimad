@@ -10,7 +10,7 @@
 
 @implementation Author
 
-+ (Author*)withDictionary:(NSDictionary *)dictionary repositoryId:(NSInteger)repositoryId {
++ (Author *)withDictionary:(NSDictionary *)dictionary repositoryId:(NSInteger)repositoryId {
     Author *author = [Author new];
     author.Id = repositoryId;
     author.name = dictionary[@"commit"][@"author"][@"name"];

@@ -23,16 +23,13 @@ typedef NS_ENUM(NSInteger, SSARefreshState) {
 
 @interface RefreshControl ()
 
-@property (nonatomic, readwrite) CGFloat originalTopInset;
-@property (nonatomic, assign) CGFloat refreshTotalPixels;
-
-@property (nonatomic, strong) UIScrollView *scrollView;
-
-@property (nonatomic, strong) RefreshCircleContainerView *refreshCircleContainerView;
-@property (nonatomic, assign) SSARefreshState refreshState;
-@property (nonatomic, assign) SSARefreshViewLayerType refreshViewLayerType;
-
-@property (nonatomic, assign) BOOL isRefreshing;
+@property (readwrite, nonatomic) CGFloat originalTopInset;
+@property (assign, nonatomic) CGFloat refreshTotalPixels;
+@property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) RefreshCircleContainerView *refreshCircleContainerView;
+@property (assign, nonatomic) SSARefreshState refreshState;
+@property (assign, nonatomic) SSARefreshViewLayerType refreshViewLayerType;
+@property (assign, nonatomic) BOOL isRefreshing;
 
 @end
 

@@ -10,7 +10,7 @@
 
 @implementation Repository
 
-+ (Repository*)withDictionary:(NSDictionary *)dictionary {
++ (Repository *)withDictionary:(NSDictionary *)dictionary {
     Repository *repository = [Repository new];
     repository.repositoryId = dictionary[@"id"];
     repository.title = dictionary[@"name"];

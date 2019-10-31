@@ -20,7 +20,7 @@
     [[self createDataTask:request completion: completion] resume];
 }
 
-- (NSURL*)url:(ReuqestTarget *)target {
+- (NSURL *)url:(ReuqestTarget *)target {
     NSURLComponents *components = [NSURLComponents new];
     components.scheme = @"https";
     components.host = @"api.github.com";

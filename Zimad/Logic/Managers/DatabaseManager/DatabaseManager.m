@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 
 @implementation DatabaseManager
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -59,7 +60,7 @@
     return [NSArray new];
 }
 
--(NSManagedObject*)getObjectFromDatabase:(NSString *)entityName key:(NSString *)key value:(NSInteger)value{
+- (NSManagedObject *)getObjectFromDatabase:(NSString *)entityName key:(NSString *)key value:(NSInteger)value{
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: entityName];
     [request setPredicate:[NSPredicate predicateWithFormat:@"%K=%ld",key, value]];
     NSError* error;
