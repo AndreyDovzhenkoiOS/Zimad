@@ -51,12 +51,12 @@
         if (!error) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) response;
             if (httpResponse.statusCode == 200) {
-                Author *author = [Author withDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error] repositoryId: repository.Id.integerValue];
+                Author *author = [Author withDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error] repositoryId: repository.repositoryId.integerValue];
                 [DatabaseManager.shared addToDatabaseForAuthor:author];
               completion(author);
             }
         } else {
-            completion([DatabaseManager.shared getAuthorFromDatabase:repository.Id.integerValue]);
+            completion([DatabaseManager.shared getAuthorFromDatabase:repository.repositoryId.integerValue]);
         }
     }];
 }

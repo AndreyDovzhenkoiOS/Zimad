@@ -94,7 +94,7 @@
 - (void)addToDatabaseForRepositoryList:(RepositoryList *)repositoryList {
     for (Repository *repository in repositoryList.repositories) {
         NSDictionary *dictionary = @{
-            @"id": repository.Id,
+            @"repositoryId": repository.repositoryId,
             @"fullName": repository.fullName,
             @"title": repository.title,
             @"url": repository.url,
@@ -102,7 +102,7 @@
             @"descriptions": repository.descriptions,
             @"branch": repository.branch
         };
-        if (![self getObjectFromDatabase: @"RepositoryModel" key:@"id" value: repository.Id.integerValue]) {
+        if (![self getObjectFromDatabase: @"RepositoryModel" key:@"repositoryId" value: repository.repositoryId.integerValue]) {
             [self addObjectInDatabase:@"RepositoryModel" dictionaryProperty:dictionary];
         }
     }

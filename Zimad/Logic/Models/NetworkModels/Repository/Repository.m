@@ -12,7 +12,7 @@
 
 + (Repository*)withDictionary:(NSDictionary *)dictionary {
     Repository *repository = [Repository new];
-    repository.Id = dictionary[@"id"];
+    repository.repositoryId = dictionary[@"id"];
     repository.title = dictionary[@"name"];
     repository.fullName = dictionary[@"full_name"];
     repository.url = dictionary[@"url"];

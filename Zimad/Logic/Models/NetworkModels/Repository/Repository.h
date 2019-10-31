@@ -10,7 +10,7 @@
 
 @interface Repository : NSObject
 
-@property (assign, nonatomic) NSNumber *Id;
+@property (assign, nonatomic) NSNumber *repositoryId;
 @property (strong, nonatomic) NSString *url;
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *fullName;
