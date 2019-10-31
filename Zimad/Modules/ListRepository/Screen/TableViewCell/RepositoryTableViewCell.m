@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -29,7 +30,7 @@
 
 - (void)prepareForReuse {
     [super prepareForReuse];
-    _iconImageView.image = [UIImage imageNamed:@"emptyIcon"];
+    _iconImageView.image = nil;
 }
 
 - (void)configureWith:(Repository *)repository service:(NetworkService*)service {
@@ -37,8 +38,10 @@
     _titleLabel.text = repository.title;
     _nameLabel.text = repository.fullName;
     _descriptionLabel.text = repository.descriptions;
+    [_activityIndicator startAnimating];
     [_service getImageWithUrl:[NSURL URLWithString: repository.avatarUrl] completion:^(UIImage *image) {
         self.iconImageView.image = image;
+        [self.activityIndicator stopAnimating];
     }];
 }
 

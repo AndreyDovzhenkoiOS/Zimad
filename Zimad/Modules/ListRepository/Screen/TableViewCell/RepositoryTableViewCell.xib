@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7d-UT-Eij">
                         <rect key="frame" x="8" y="5" width="461" height="140"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyIcon" translatesAutoresizingMaskIntoConstraints="NO" id="HM6-F0-rT2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HM6-F0-rT2">
                                 <rect key="frame" x="8" y="10" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="4Ca-fh-s8O"/>
@@ -61,22 +61,30 @@
                                     <constraint firstAttribute="height" constant="1" id="MrR-dD-TbT"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="aNw-sh-9BO">
+                                <rect key="frame" x="8" y="10" width="80" height="80"/>
+                                <color key="color" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NpO-yc-M8z" secondAttribute="trailing" constant="8" id="14q-Zv-zxW"/>
                             <constraint firstItem="oCS-WP-H5J" firstAttribute="top" secondItem="Enh-tq-HbD" secondAttribute="bottom" constant="8" id="1DW-a8-AAy"/>
                             <constraint firstItem="NpO-yc-M8z" firstAttribute="top" secondItem="G7d-UT-Eij" secondAttribute="top" constant="5" id="2Ql-DW-4cN"/>
+                            <constraint firstItem="aNw-sh-9BO" firstAttribute="height" secondItem="HM6-F0-rT2" secondAttribute="height" id="BEl-cH-Uzm"/>
                             <constraint firstItem="BAx-9C-zPg" firstAttribute="leading" secondItem="NpO-yc-M8z" secondAttribute="leading" id="DKI-wr-cvL"/>
+                            <constraint firstItem="aNw-sh-9BO" firstAttribute="centerY" secondItem="HM6-F0-rT2" secondAttribute="centerY" id="Ehi-Kn-E4F"/>
                             <constraint firstItem="BAx-9C-zPg" firstAttribute="trailing" secondItem="NpO-yc-M8z" secondAttribute="trailing" id="IS0-Bd-eqz"/>
                             <constraint firstItem="Enh-tq-HbD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BAx-9C-zPg" secondAttribute="bottom" constant="5" id="NbH-yU-L0I"/>
                             <constraint firstAttribute="trailing" secondItem="oCS-WP-H5J" secondAttribute="trailing" id="OdS-rV-Rw0"/>
                             <constraint firstItem="oCS-WP-H5J" firstAttribute="leading" secondItem="G7d-UT-Eij" secondAttribute="leading" constant="8" id="SYO-6d-G7V"/>
+                            <constraint firstItem="aNw-sh-9BO" firstAttribute="centerX" secondItem="HM6-F0-rT2" secondAttribute="centerX" id="U40-r0-ose"/>
                             <constraint firstItem="BAx-9C-zPg" firstAttribute="top" secondItem="NpO-yc-M8z" secondAttribute="bottom" constant="5" id="Ubf-ed-ub2"/>
                             <constraint firstAttribute="bottom" secondItem="oCS-WP-H5J" secondAttribute="bottom" id="XDw-ao-cYJ"/>
                             <constraint firstItem="NpO-yc-M8z" firstAttribute="leading" secondItem="HM6-F0-rT2" secondAttribute="trailing" constant="13" id="YXc-7W-nvm"/>
                             <constraint firstItem="HM6-F0-rT2" firstAttribute="top" secondItem="G7d-UT-Eij" secondAttribute="top" constant="10" id="Z1Y-d9-aSv"/>
                             <constraint firstItem="HM6-F0-rT2" firstAttribute="leading" secondItem="G7d-UT-Eij" secondAttribute="leading" constant="8" id="ezM-rJ-xA4"/>
                             <constraint firstItem="Enh-tq-HbD" firstAttribute="leading" secondItem="BAx-9C-zPg" secondAttribute="leading" id="fZD-dm-BDE"/>
+                            <constraint firstItem="aNw-sh-9BO" firstAttribute="width" secondItem="HM6-F0-rT2" secondAttribute="width" id="lnW-3I-bmn"/>
                             <constraint firstItem="Enh-tq-HbD" firstAttribute="trailing" secondItem="BAx-9C-zPg" secondAttribute="trailing" id="v7m-x2-X8v"/>
                         </constraints>
                     </view>
@@ -90,6 +98,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="activityIndicator" destination="aNw-sh-9BO" id="VQ2-2y-CWg"/>
                 <outlet property="containerView" destination="G7d-UT-Eij" id="N5N-QD-Hhs"/>
                 <outlet property="descriptionLabel" destination="Enh-tq-HbD" id="q51-6U-cly"/>
                 <outlet property="iconImageView" destination="HM6-F0-rT2" id="7Ld-Be-GoL"/>
@@ -99,7 +108,4 @@
             <point key="canvasLocation" x="160.1449275362319" y="101.45089285714285"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="emptyIcon" width="490" height="491"/>
-    </resources>
 </document>
