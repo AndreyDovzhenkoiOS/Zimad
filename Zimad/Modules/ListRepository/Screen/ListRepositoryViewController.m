@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffect;
+@property (weak, nonatomic) IBOutlet UILabel *emptyLabel;
 
 @property (strong, nonatomic) RefreshControl *refreshControl;
 @property (strong, nonatomic) AlertView *alertView;
@@ -91,6 +92,8 @@
 
     _viewModel.completionHandler = ^(ListRepositoryViewModelType type) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            BOOL isEmpty = self.viewModel.repositoryList.repositories.count == 0;
+            [weakSelf.emptyLabel setHidden: !isEmpty];
             switch (type) {
                 case update:
                     [weakSelf.activityIndicator stopAnimating];

@@ -64,9 +64,16 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqR-Th-xMf">
+                                <rect key="frame" x="62" y="359" width="290" height="232"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
+                                <color key="textColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="gqR-Th-xMf" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.3" id="2HM-T3-dUE"/>
                             <constraint firstItem="YdD-gb-dgv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4iT-v5-ujz"/>
                             <constraint firstItem="C9J-8y-QGX" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.4" id="4tb-P7-vfu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ShR-FA-5PF" secondAttribute="trailing" id="587-9Y-bXT"/>
@@ -78,17 +85,21 @@
                             <constraint firstItem="C9J-8y-QGX" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="IBE-pd-VVd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cA0-sv-4w5" secondAttribute="trailing" id="KHL-4q-RFX"/>
                             <constraint firstItem="YdD-gb-dgv" firstAttribute="top" secondItem="cA0-sv-4w5" secondAttribute="bottom" id="Q7M-GH-if3"/>
+                            <constraint firstItem="gqR-Th-xMf" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.7" id="bXO-p9-iBv"/>
                             <constraint firstItem="ShR-FA-5PF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hrf-8i-Bf2"/>
                             <constraint firstAttribute="bottom" secondItem="YdD-gb-dgv" secondAttribute="bottom" id="ntT-2n-e5F"/>
                             <constraint firstItem="cA0-sv-4w5" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="o8u-ZK-j1N"/>
+                            <constraint firstItem="gqR-Th-xMf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="oeB-6k-t39"/>
                             <constraint firstItem="cA0-sv-4w5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ofB-Dx-Fo2"/>
                             <constraint firstItem="cA0-sv-4w5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="q5k-tc-Ahp"/>
+                            <constraint firstItem="gqR-Th-xMf" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ziI-1E-Ioz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="QF7-Lb-eTQ"/>
                     <connections>
                         <outlet property="activityIndicator" destination="C9J-8y-QGX" id="ACJ-6G-2O6"/>
+                        <outlet property="emptyLabel" destination="gqR-Th-xMf" id="R0Y-wQ-3UW"/>
                         <outlet property="headerView" destination="cA0-sv-4w5" id="6CG-6o-67I"/>
                         <outlet property="tableView" destination="D1b-vO-wTd" id="0bA-pQ-bgb"/>
                         <outlet property="visualEffect" destination="ShR-FA-5PF" id="CYz-yE-Fh3"/>
