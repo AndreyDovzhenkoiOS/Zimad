@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="AuthorModel" representedClassName="AuthorModel" syncable="YES">
         <attribute name="avatarUrl" optional="YES" attributeType="String"/>
-        <attribute name="hashComimt" optional="YES" attributeType="String"/>
+        <attribute name="hashCommit" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="nameCommit" optional="YES" attributeType="String"/>
