@@ -38,8 +38,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden: YES];
-    [self.activityIndicator startAnimating];
     [_viewModel loadRepositories];
+    if (_viewModel.repositoryList.repositories.count == 0) {
+        [self.activityIndicator startAnimating];
+    }
 }
 
 - (void)configurationUI {
