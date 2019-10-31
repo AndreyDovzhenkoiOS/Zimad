@@ -119,7 +119,7 @@
         @"id": @(author.Id),
         @"avatarUrl": author.avatarUrl,
         @"name": author.name,
-        @"nameCommit": author.nameCommit,
+        @"nameComit": author.nameCommit,
         @"hashComit": author.hashCommit,
     };
     if (![self getObjectFromDatabase: @"AuthorModel" key:@"id" value: author.Id]) {
