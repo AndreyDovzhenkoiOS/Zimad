@@ -13,14 +13,17 @@
 #import "UITableView+UITableView.h"
 #import "RefreshControl.h"
 #import "DetailedRepositoryViewController.h"
+#import "AlertView.h"
 
-@interface ListRepositoryViewController () <SSARefreshControlDelegate>
+@interface ListRepositoryViewController () <SSARefreshControlDelegate, AlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffect;
 
 @property (strong, nonatomic) RefreshControl *refreshControl;
+@property (strong, nonatomic) AlertView *alertView;
 @property (strong, nonatomic) ListRepositoryViewModel *viewModel;
 
 @end
@@ -45,15 +48,15 @@
 }
 
 - (void)configurationUI {
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 100;
+    _tableView.rowHeight = UITableViewAutomaticDimension;
+    _tableView.estimatedRowHeight = 100;
     [self configureHeaderView];
 }
 
 - (void)configureHeaderView {
-    self.headerView.clipsToBounds = YES;
-    self.headerView.layer.cornerRadius = 20;
-    self.headerView.layer.maskedCorners = kCALayerMinXMaxYCorner | kCALayerMaxXMaxYCorner;
+    _headerView.clipsToBounds = YES;
+    _headerView.layer.cornerRadius = 20;
+    _headerView.layer.maskedCorners = kCALayerMinXMaxYCorner | kCALayerMaxXMaxYCorner;
 }
 
 - (void)registerCell {
@@ -62,8 +65,43 @@
 }
 
 - (void)setupRefreshControl {
-    self.refreshControl = [[RefreshControl alloc] initWithScrollView:self.tableView andRefreshViewLayerType:SSARefreshViewLayerTypeOnScrollView];
-    self.refreshControl.delegate = self;
+    _refreshControl = [[RefreshControl alloc] initWithScrollView:self.tableView andRefreshViewLayerType:SSARefreshViewLayerTypeOnScrollView];
+    _refreshControl.delegate = self;
+}
+
+- (void)configureAlertView {
+    _alertView = [[[NSBundle mainBundle] loadNibNamed:@"AlertView" owner:self options:nil] firstObject];
+    _alertView.delegate = self;
+    _alertView.center = self.view.center;
+    _alertView.frame = CGRectMake(0, 0, 300, 200);
+    _alertView.center = self.view.center;
+    [_alertView configureWithTitle:@"Message" description:@"Something went wrong! Internet failure or service not working. Try it next time. :("];
+    [self.view addSubview: _alertView];
+}
+
+- (void)animateIn {
+    _alertView.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    _alertView.alpha = 0;
+
+    [UIView animateWithDuration:0.4 animations:^{
+        self.visualEffect.alpha = 1;
+        self.alertView.alpha = 1;
+        self.alertView.transform = CGAffineTransformMakeScale(1, 1);
+    }];
+}
+
+- (void)animateOut {
+    [UIView animateWithDuration:0.4 animations:^{
+        self.visualEffect.alpha = 0;
+        self.alertView.alpha = 0;
+        self.alertView.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    } completion:^(BOOL finished) {
+        [self.alertView removeFromSuperview];
+    }];
+}
+
+- (void)onTapAlertButton {
+    [self animateOut];
 }
 
 - (void)setupViewModel {
@@ -86,6 +124,8 @@
 
                     break;
                 case error:
+                    [weakSelf configureAlertView];
+                    [weakSelf animateIn];
                     break;
             }
         });

@@ -49,12 +49,12 @@
 }
 
 - (void)requestRepositories {
-    [_service getRepositoriesWith:20 page:_page completion:^(RepositoryList *repositoryList) {
-        [self handleRequestRepositories: repositoryList];
+    [_service getRepositoriesWith:20 page:_page completion:^(RepositoryList *repositoryList, BOOL isError) {
+        [self handleRequestRepositories:repositoryList isError:isError];
     }];
 }
 
-- (void)handleRequestRepositories:(RepositoryList *)repositoryList {
+- (void)handleRequestRepositories:(RepositoryList *)repositoryList isError:(BOOL)isError {
     self.isNext = repositoryList.isNext;
 
     if (self.isNewList) {
@@ -67,6 +67,10 @@
     self.page++;
     self.completionHandler(update);
     self.isLoading = NO;
+
+    if (isError) {
+        self.completionHandler(error);
+    }
 }
 
 @end

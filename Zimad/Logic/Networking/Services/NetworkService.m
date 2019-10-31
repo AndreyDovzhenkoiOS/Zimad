@@ -30,7 +30,7 @@
     return self;
 }
 
-- (void)getRepositoriesWith:(NSInteger)limit page:(NSInteger)page completion:(void (^)(RepositoryList*))completion {
+- (void)getRepositoriesWith:(NSInteger)limit page:(NSInteger)page completion:(void (^)(RepositoryList*, BOOL))completion {
     [_provider request:[ReuqestTarget withType: repositories limit:limit page:page]
                 completion:^(NSError *error, NSURLResponse *response, NSData *data) {
         if (!error) {
@@ -38,10 +38,10 @@
             if (httpResponse.statusCode == 200) {
                 RepositoryList *repositoryList = [RepositoryList withDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error]];
                 [DatabaseManager.shared addToDatabaseForRepositoryList:repositoryList];
-                completion(repositoryList);
+                completion(repositoryList, NO);
             }
         } else {
-            completion([DatabaseManager.shared getRepositoryListFromDatabase]);
+            completion([DatabaseManager.shared getRepositoryListFromDatabase], YES);
         }
     }];
 }

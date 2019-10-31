@@ -13,7 +13,7 @@
 
 @interface NetworkService : NSObject
 
-- (void)getRepositoriesWith:(NSInteger)limit page:(NSInteger)page completion:(void (^)(RepositoryList*))completion;
+- (void)getRepositoriesWith:(NSInteger)limit page:(NSInteger)page completion:(void (^)(RepositoryList*, BOOL))completion;
 
 - (void)getDetailedRepositoryWith:(Repository *)repository completion:(void (^)(Author*))completion;
 

@@ -56,17 +56,29 @@
                                 <rect key="frame" x="124" y="397.5" width="166" height="155"/>
                                 <color key="color" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShR-FA-5PF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Mzq-FP-mrG">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YdD-gb-dgv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4iT-v5-ujz"/>
                             <constraint firstItem="C9J-8y-QGX" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.4" id="4tb-P7-vfu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ShR-FA-5PF" secondAttribute="trailing" id="587-9Y-bXT"/>
+                            <constraint firstAttribute="bottom" secondItem="ShR-FA-5PF" secondAttribute="bottom" id="7qt-K2-mhE"/>
+                            <constraint firstItem="ShR-FA-5PF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8gE-a3-I1u"/>
                             <constraint firstItem="YdD-gb-dgv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9N1-Ag-vxJ"/>
                             <constraint firstItem="C9J-8y-QGX" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="A3k-Pi-g4j"/>
                             <constraint firstItem="C9J-8y-QGX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FL9-1Z-pTU"/>
                             <constraint firstItem="C9J-8y-QGX" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="IBE-pd-VVd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cA0-sv-4w5" secondAttribute="trailing" id="KHL-4q-RFX"/>
                             <constraint firstItem="YdD-gb-dgv" firstAttribute="top" secondItem="cA0-sv-4w5" secondAttribute="bottom" id="Q7M-GH-if3"/>
+                            <constraint firstItem="ShR-FA-5PF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hrf-8i-Bf2"/>
                             <constraint firstAttribute="bottom" secondItem="YdD-gb-dgv" secondAttribute="bottom" id="ntT-2n-e5F"/>
                             <constraint firstItem="cA0-sv-4w5" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="o8u-ZK-j1N"/>
                             <constraint firstItem="cA0-sv-4w5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ofB-Dx-Fo2"/>
@@ -79,6 +91,7 @@
                         <outlet property="activityIndicator" destination="C9J-8y-QGX" id="ACJ-6G-2O6"/>
                         <outlet property="headerView" destination="cA0-sv-4w5" id="6CG-6o-67I"/>
                         <outlet property="tableView" destination="D1b-vO-wTd" id="0bA-pQ-bgb"/>
+                        <outlet property="visualEffect" destination="ShR-FA-5PF" id="CYz-yE-Fh3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

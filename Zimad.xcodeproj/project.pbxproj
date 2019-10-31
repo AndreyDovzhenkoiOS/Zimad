@@ -26,6 +26,8 @@
 		8A72F21B2360D40100F09F0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A72F21A2360D40100F09F0B /* main.m */; };
 		8A72F2282360D44C00F09F0B /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A72F2272360D44C00F09F0B /* DatabaseManager.m */; };
 		8A72F2302360D54B00F09F0B /* ListRepositoryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A72F22F2360D54B00F09F0B /* ListRepositoryViewModel.m */; };
+		8AAC586B236AEF3200E9CE4A /* AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC586A236AEF3200E9CE4A /* AlertView.m */; };
+		8AAC586E236AEF4600E9CE4A /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AAC586D236AEF4600E9CE4A /* AlertView.xib */; };
 		8AB006802369F09E003C6877 /* DetailedRepositoryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB0067F2369F09E003C6877 /* DetailedRepositoryViewModel.m */; };
 		8AFC1D9223688C9200F8E022 /* UITableView+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFC1D9123688C9200F8E022 /* UITableView+UITableView.m */; };
 		8AFC1DA023689C7C00F8E022 /* PullToRefreshAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFC1D9923689C7C00F8E022 /* PullToRefreshAnimator.m */; };
@@ -72,6 +74,9 @@
 		8A72F2272360D44C00F09F0B /* DatabaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		8A72F22E2360D54B00F09F0B /* ListRepositoryViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListRepositoryViewModel.h; sourceTree = "<group>"; };
 		8A72F22F2360D54B00F09F0B /* ListRepositoryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListRepositoryViewModel.m; sourceTree = "<group>"; };
+		8AAC5869236AEF3200E9CE4A /* AlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertView.h; sourceTree = "<group>"; };
+		8AAC586A236AEF3200E9CE4A /* AlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertView.m; sourceTree = "<group>"; };
+		8AAC586D236AEF4600E9CE4A /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		8AB0067E2369F09E003C6877 /* DetailedRepositoryViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailedRepositoryViewModel.h; sourceTree = "<group>"; };
 		8AB0067F2369F09E003C6877 /* DetailedRepositoryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailedRepositoryViewModel.m; sourceTree = "<group>"; };
 		8AFC1D9023688C9200F8E022 /* UITableView+UITableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+UITableView.h"; sourceTree = "<group>"; };
@@ -315,6 +320,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8AAC586C236AEF3500E9CE4A /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				8AAC5869236AEF3200E9CE4A /* AlertView.h */,
+				8AAC586A236AEF3200E9CE4A /* AlertView.m */,
+				8AAC586D236AEF4600E9CE4A /* AlertView.xib */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
 		8AB0067D2369F07C003C6877 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +369,7 @@
 		8AFC1D9623689C4200F8E022 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				8AAC586C236AEF3500E9CE4A /* AlertView */,
 				8AFC1D9723689C5800F8E022 /* PullToRefresh */,
 			);
 			path = CustomUI;
@@ -472,6 +488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AAC586E236AEF4600E9CE4A /* AlertView.xib in Resources */,
 				8A72F2182360D40100F09F0B /* LaunchScreen.storyboard in Resources */,
 				8AFC1DA123689C7C00F8E022 /* Ressources.bundle in Resources */,
 				8A72F2152360D40100F09F0B /* Assets.xcassets in Resources */,
@@ -499,6 +516,7 @@
 				8AFC1DA92368B18900F8E022 /* RefreshControl.m in Sources */,
 				8A72F2302360D54B00F09F0B /* ListRepositoryViewModel.m in Sources */,
 				8A72F2072360D3FF00F09F0B /* AppDelegate.m in Sources */,
+				8AAC586B236AEF3200E9CE4A /* AlertView.m in Sources */,
 				8AFC1DB32368B48D00F8E022 /* NetworkService.m in Sources */,
 				8A72F20A2360D3FF00F09F0B /* SceneDelegate.m in Sources */,
 				8A19036C2362F33B00CA9712 /* NSObject+NSObject.m in Sources */,
