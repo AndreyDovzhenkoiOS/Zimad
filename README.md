@@ -32,3 +32,7 @@
 # Gif
 
 ![](Zimad.gif)
+
+Error
+
+![](ZimadAlertError.gif)
